@@ -21,7 +21,7 @@ jobs:
     # which excludes the baseDockerImage/accessIssueFix branches this runs on.
     environment: docker-base-publish
     if: ${{ vars.CI_PROFILE != 'lite' && github.actor == 'Frooodle' }}
-    runs-on: ubuntu-24.04-8core
+    runs-on: [self-hosted, runner-svc]
     permissions:
       packages: write
       id-token: write

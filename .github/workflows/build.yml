@@ -204,7 +204,9 @@ jobs:
       dockerfiles-changed: ${{ needs.files-changed.outputs.dockerfiles }}
 
   tauri-build:
+    # GitHub-hosted matrix (windows/macos): manual dispatch only (runner-svc policy).
     if: |
+      github.event_name == 'workflow_dispatch' &&
       !cancelled() &&
       needs.files-changed.outputs.tauri == 'true' &&
       contains(fromJSON('["success", "skipped"]'), needs.gradle-cache-prime.result)
