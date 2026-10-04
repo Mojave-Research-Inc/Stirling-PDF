@@ -341,7 +341,7 @@ jobs:
       always() && needs.pick.outputs.is_fork != 'true'
       && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     # Depot is disabled repo-wide, so the depot-* class never gets a runner and the job dies unassigned.
-    runs-on: ${{ needs.pick.outputs.is_fork == 'true' && 'ubuntu-latest' || 'ubuntu-24.04-8core' }}
+    runs-on: [self-hosted, runner-svc]
     timeout-minutes: 60
     strategy:
       # One leg per Valkey topology. fail-fast off so a sentinel break still reports cluster.
