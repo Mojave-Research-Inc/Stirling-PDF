@@ -32,7 +32,7 @@ permissions:
 
 jobs:
   pick:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     timeout-minutes: 1
     outputs:
       is_fork: ${{ steps.decide.outputs.is_fork }}

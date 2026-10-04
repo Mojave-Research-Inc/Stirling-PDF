@@ -27,7 +27,7 @@ jobs:
     # is limited to main / release / v* tags, so every push to release waits on one.
     environment: package-publish
     if: ${{ vars.CI_PROFILE != 'lite' }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@05e31511f85b41b11d1cf0ef85d0992719546e2c # v2.21.0

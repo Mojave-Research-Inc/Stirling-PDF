@@ -19,7 +19,7 @@ permissions:
 
 jobs:
   get-release-info:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     outputs:
       version: ${{ steps.info.outputs.version }}
       dmg_sha256: ${{ steps.hashes.outputs.dmg_sha256 }}
@@ -75,7 +75,7 @@ jobs:
   update-homebrew-and-scoop:
     environment: package-publish
     needs: get-release-info
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       contents: write
     steps:

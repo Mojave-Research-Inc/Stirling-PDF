@@ -10,7 +10,7 @@ permissions:
 jobs:
   labeler:
     name: Labeler
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       issues: write
     steps:

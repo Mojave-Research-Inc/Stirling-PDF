@@ -14,7 +14,7 @@ permissions:
 jobs:
   rollback:
     environment: docker-publish
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       packages: write
     steps:

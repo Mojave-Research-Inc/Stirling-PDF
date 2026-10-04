@@ -14,7 +14,7 @@ jobs:
       name: ci-unsigned
       deployment: false
     name: Prime shared Gradle cache
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     timeout-minutes: 15
     steps:
       - name: Harden the runner (Audit all outbound calls)

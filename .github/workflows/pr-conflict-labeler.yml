@@ -25,7 +25,7 @@ env:
 jobs:
   label-conflicts:
     name: Label conflicted PRs
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       contents: read # actions/checkout
       issues: write # get/create the repo-level conflict label

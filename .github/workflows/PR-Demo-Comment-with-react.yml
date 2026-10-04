@@ -35,7 +35,7 @@ permissions:
 
 jobs:
   check-comment:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       contents: read # actions/checkout
       issues: write # add reaction to the triggering issue comment
@@ -168,7 +168,7 @@ jobs:
   deploy-pr:
     environment: pr-preview
     needs: check-comment
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       contents: read # actions/checkout, incl. the PR merge ref
       issues: write # reactions, 'pr-deployed' label, deployment URL comment
@@ -475,7 +475,7 @@ jobs:
 
   handle-label-commands:
     if: ${{ github.event.issue.pull_request != null }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       contents: read # actions/checkout, reads repo_devs.json and labels.yml
       issues: write # add/remove labels, delete the command comment

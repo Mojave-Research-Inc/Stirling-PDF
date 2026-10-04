@@ -21,7 +21,7 @@ permissions:
 jobs:
   check-files:
     if: github.event_name == 'pull_request_target'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       contents: read # Checkout, and read translation files via the contents API
       issues: write # Allow posting comments on issues/PRs

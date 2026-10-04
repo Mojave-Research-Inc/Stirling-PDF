@@ -13,7 +13,7 @@ permissions:
 jobs:
   playwright-e2e:
     name: playwright-e2e (${{ matrix.browser }})
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     # The image already contains the Playwright browsers and all Linux
     # dependencies. This keeps the matrix for per-browser reporting while
     # avoiding three concurrent `playwright install --with-deps` runs.

@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   labeler:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       contents: read # checkout + labeler fetching its config from the repo
       pull-requests: write # read changed files, apply labels to the PR

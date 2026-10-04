@@ -20,7 +20,7 @@ permissions:
 jobs:
   playwright-all-browsers:
     name: Playwright (chromium + firefox + webkit)
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@05e31511f85b41b11d1cf0ef85d0992719546e2c # v2.21.0
@@ -69,7 +69,7 @@ jobs:
       fail-fast: false
       matrix:
         theme: [light, dark]
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     # One full sweep (~30 minutes of browser time).
     timeout-minutes: 60
     steps:
@@ -131,7 +131,7 @@ jobs:
       name: ci-unsigned
       deployment: false
     name: Cucumber (nightly scenarios + full concurrency)
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     # Fork pull requests get no MAVEN_* secrets, so the image build cannot work.
     if: >-
       github.event_name != 'pull_request' ||

@@ -14,7 +14,7 @@ jobs:
       name: pr-preview
       deployment: false
     if: github.event.action == 'closed'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       contents: read # actions/checkout
       pull-requests: write

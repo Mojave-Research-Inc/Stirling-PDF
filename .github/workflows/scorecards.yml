@@ -19,7 +19,7 @@ jobs:
   analysis:
     if: ${{ vars.CI_PROFILE != 'lite' }}
     name: Scorecard analysis
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       # Needed to upload the results to code-scanning dashboard.
       security-events: write

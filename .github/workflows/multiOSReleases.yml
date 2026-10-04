@@ -42,7 +42,7 @@ jobs:
       name: ci-unsigned
       deployment: false
     if: ${{ vars.CI_PROFILE != 'lite' }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       version: ${{ steps.versionNumber.outputs.versionNumber }}
@@ -121,7 +121,7 @@ jobs:
       name: ci-unsigned
       deployment: false
     needs: determine-matrix
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     strategy:
       matrix:
         variant:
@@ -716,7 +716,7 @@ jobs:
 
   collect-and-release:
     needs: [determine-matrix, build, build-jars]
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       contents: write
     steps:

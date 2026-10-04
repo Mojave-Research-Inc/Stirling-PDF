@@ -16,7 +16,7 @@ env:
 
 jobs:
   deploy-saas-dev:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     environment: saas-dev
     concurrency:
       group: saas-dev-deploy

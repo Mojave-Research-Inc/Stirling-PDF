@@ -20,7 +20,7 @@ jobs:
     environment:
       name: ci-unsigned
       deployment: false
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       actions: write
       contents: read

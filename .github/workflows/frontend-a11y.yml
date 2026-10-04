@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   frontend-a11y:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     timeout-minutes: 25
     steps:
       - name: Harden Runner

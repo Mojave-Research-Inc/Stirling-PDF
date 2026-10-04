@@ -21,7 +21,7 @@ permissions:
 jobs:
   files-changed:
     name: detect what files changed
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     timeout-minutes: 3
     outputs:
       licenses-frontend: ${{ steps.changes.outputs.licenses-frontend }}
@@ -49,7 +49,7 @@ jobs:
     if: needs.files-changed.outputs.licenses-frontend == 'true'
     name: Generate Frontend License Report
     needs: files-changed
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       contents: write
       pull-requests: write
@@ -327,7 +327,7 @@ jobs:
     if: needs.files-changed.outputs.licenses-backend == 'true'
     needs: files-changed
     name: Generate Backend License Report
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     permissions:
       contents: write
       pull-requests: write

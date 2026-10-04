@@ -30,7 +30,7 @@ permissions:
 
 jobs:
   aggregate:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, runner-svc]
     timeout-minutes: 15
     steps:
       - name: Harden Runner
